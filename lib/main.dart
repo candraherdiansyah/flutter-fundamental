@@ -13,6 +13,7 @@ import 'package:belajar/listview/list_separated.dart';
 import 'package:belajar/row_column.dart';
 import 'package:belajar/row_wigdet.dart';
 import 'package:belajar/screens/about_screen.dart';
+import 'package:belajar/screens/booking_screen.dart';
 import 'package:belajar/screens/home_screen.dart';
 import 'package:belajar/screens/wisata_screen.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
   List _pages = [
     HomeScreen(),
     ListWisataScreen(),
-    GridLatihanSatu(),
+    BookingWisataScreen(),
     BelajarContainer()
   ];
 
@@ -94,7 +95,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
           BottomNavigationBarItem(
               icon: Icon(Icons.view_stream), label: "Wisata"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.grid_3x3_outlined), label: "Grid"),
+              icon: Icon(Icons.payment), label: "Beli Tiket"),
           BottomNavigationBarItem(
               icon: Icon(Icons.contact_mail), label: "Container"),
         ],
