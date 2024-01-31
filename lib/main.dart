@@ -14,6 +14,7 @@ import 'package:belajar/row_column.dart';
 import 'package:belajar/row_wigdet.dart';
 import 'package:belajar/screens/about_screen.dart';
 import 'package:belajar/screens/booking_screen.dart';
+import 'package:belajar/screens/form_screen.dart';
 import 'package:belajar/screens/home_screen.dart';
 import 'package:belajar/screens/wisata_screen.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
     HomeScreen(),
     ListWisataScreen(),
     BookingWisataScreen(),
-    BelajarContainer()
+    BelajarForm()
   ];
 
   _changeTab(int index) {

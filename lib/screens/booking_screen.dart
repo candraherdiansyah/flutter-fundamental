@@ -158,8 +158,8 @@ class _BookingWisataScreenState extends State<BookingWisataScreen> {
                                 DateTime? pickedDate = await showDatePicker(
                                     context: context,
                                     initialDate: DateTime.now(),
-                                    firstDate: DateTime(2022),
-                                    lastDate: DateTime(2023));
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2050));
                                 if (pickedDate != null) {
                                   print(pickedDate);
                                   String formattedDate =

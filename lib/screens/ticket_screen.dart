@@ -36,7 +36,7 @@ class TicketScreen extends StatelessWidget {
             children: [
               Card(
                 elevation: 4.0,
-                color: Colors.black,
+                color: Colors.white,
                 margin: EdgeInsets.only(top: 24, right: 24, left: 24),
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
@@ -107,6 +107,5 @@ class TicketScreen extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
