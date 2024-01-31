@@ -8,7 +8,17 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        leading: GestureDetector(
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        // iconTheme: IconThemeData(color: Colors.redAccent),
+        title: Text("About"),
       ),
       body: Center(
         child: Column(

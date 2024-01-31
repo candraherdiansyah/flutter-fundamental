@@ -14,6 +14,7 @@ import 'package:belajar/row_column.dart';
 import 'package:belajar/row_wigdet.dart';
 import 'package:belajar/screens/about_screen.dart';
 import 'package:belajar/screens/home_screen.dart';
+import 'package:belajar/screens/wisata_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       title: "Ini Project Flutter Pertamaku",
       initialRoute: '/',
       routes: {
+        // daftar route
         '/': (context) => BottomNavigationMenu(),
         '/about': (context) => AboutScreen(),
         'latihan': (context) => GridLatihanSatu()
@@ -68,7 +70,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
 
   List _pages = [
     HomeScreen(),
-    BelajarListBasic(),
+    ListWisataScreen(),
     GridLatihanSatu(),
     BelajarContainer()
   ];
@@ -81,7 +83,6 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: _pages[_selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
@@ -90,7 +91,8 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
         unselectedItemColor: Colors.grey,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "List"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.view_stream), label: "Wisata"),
           BottomNavigationBarItem(
               icon: Icon(Icons.grid_3x3_outlined), label: "Grid"),
           BottomNavigationBarItem(

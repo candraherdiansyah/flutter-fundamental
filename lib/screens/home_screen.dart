@@ -15,8 +15,29 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Halaman Home"),
+            SizedBox(
+              height: 10,
+            ),
             TextButton(
-              child: Text("About"),
+              child: Text("Halaman 1"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              child: Text("Halaman 2"),
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextButton(
+              child: Text("Halaman 3"),
               onPressed: () {
                 Navigator.pushNamed(context, '/about');
               },
