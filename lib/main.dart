@@ -16,8 +16,11 @@ import 'package:belajar/screens/about_screen.dart';
 import 'package:belajar/screens/booking_screen.dart';
 import 'package:belajar/screens/form_screen.dart';
 import 'package:belajar/screens/home_screen.dart';
+import 'package:belajar/screens/login_screen.dart';
+import 'package:belajar/screens/profile_screen.dart';
 import 'package:belajar/screens/wisata_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,30 +34,48 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Ini Project Flutter Pertamaku",
-      initialRoute: '/',
-      routes: {
-        // daftar route
-        '/': (context) => BottomNavigationMenu(),
-        '/about': (context) => AboutScreen(),
-        'latihan': (context) => GridLatihanSatu()
-      },
+      home: CheckAuth(),
     );
   }
 }
 
-class TextWidget extends StatelessWidget {
-  const TextWidget({
-    super.key,
-  });
+class CheckAuth extends StatefulWidget {
+  @override
+  _CheckAuthState createState() => _CheckAuthState();
+}
+
+class _CheckAuthState extends State<CheckAuth> {
+  bool isAuth = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkIfLoggedIn();
+  }
+
+  void _checkIfLoggedIn() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var token = localStorage.getString('token');
+    if (token != null) {
+      if (mounted) {
+        setState(() {
+          isAuth = true;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Hello Dunia...\nHallo Candra.. ",
-        style: TextStyle(
-            color: Colors.pink, fontSize: 24, fontWeight: FontWeight.bold),
-      ),
+    Widget child;
+    if (isAuth) {
+      child = BottomNavigationMenu();
+    } else {
+      child = LoginScreen();
+    }
+
+    return Scaffold(
+      body: child,
     );
   }
 }
@@ -74,7 +95,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
     HomeScreen(),
     ListWisataScreen(),
     BookingWisataScreen(),
-    BelajarForm()
+    ProfileScreen()
   ];
 
   _changeTab(int index) {
@@ -98,7 +119,7 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
           BottomNavigationBarItem(
               icon: Icon(Icons.payment), label: "Beli Tiket"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail), label: "Container"),
+              icon: Icon(Icons.account_box), label: "Profil"),
         ],
       ),
     );
